@@ -1,16 +1,16 @@
-import Container from '../components/Container/Container'
-import Footer from '../components/Footer/Footer'
-import '../styles/globals.css'
+import Main from "../components/Main/Main";
+import Footer from "../components/Footer/Footer";
+import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }) {
   return (
     <>
-      <Container>
+      <Main>
         <Component {...pageProps} />
-      </Container>
+      </Main>
       <Footer/>
     </>
-  )
+  );
 }
 
-export default MyApp
+export default MyApp;

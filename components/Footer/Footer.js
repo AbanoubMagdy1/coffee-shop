@@ -1,10 +1,14 @@
-import React from 'react'
-import styles from './Footer.module.scss'
+import React from "react";
+import styles from "./Footer.module.scss";
 
 function Footer() {
   return (
-    <p className={styles.footer}>Created by &copy; Abanoub</p>
-  )
+    <footer>
+      <p className={styles.footer}>
+        Created by Abanoub &copy; 2022
+      </p>
+    </footer>
+  );
 }
 
-export default Footer
+export default Footer;
