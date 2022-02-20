@@ -6,6 +6,15 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
+html{
+  font-size: 62.5%;
+}
+
+body{
+  min-height : 95vh;
+  background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
+} 
+  
 a {
   color: inherit;
   text-decoration: none;
