@@ -1,9 +1,10 @@
-import styles from "../styles/Home.module.scss";
+import Container from "../components/Container/Container";
+import HomeBanner from "../components/HomeBanner/HomeBanner";
 
 export default function Home(){
   return (
-    <>
-      <h1 className={styles.title}>Coffee <span>Connisseur</span></h1>
-    </>
+    <Container>
+      <HomeBanner/>
+    </Container>
   );
 }

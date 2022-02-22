@@ -1,3 +1,14 @@
+@use "./mixins";
+
+:root{
+  --text-white : #eee;
+  --text-purple-dark : #220779;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 html,
 body {
   padding: 0;
@@ -23,6 +34,25 @@ a {
   text-decoration: none;
 }
 
-* {
-  box-sizing: border-box;
+.btn{
+  cursor: pointer;
+  border: none;
+  padding : 1.3rem 1.7rem;
+  transition: .2s all;
+
+  &:active{
+    transform: translateY(1px);
+  }
+
+  &-purple{
+    color : var(--text-white);
+    background-color: var(--text-purple-dark);
+
+    &:hover{
+      background-color: darken(#220779, 10%);
+    }
+  }
 }
+
+
+
