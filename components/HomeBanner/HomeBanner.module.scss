@@ -6,9 +6,24 @@
     flex-direction: column;
     color : var(--text-white);
     padding: 2rem 0;
+    position: relative;
+    z-index: 1;
 
     @include mixins.breakpoints-up(tablet){
         align-items: flex-start;
+    }
+}
+
+.main{
+    z-index: 3;
+}
+
+.background{
+    z-index: 0;
+    opacity: .7;
+    
+    @include mixins.breakpoints-down(mobile){
+        opacity: .4;
     }
 }
 
@@ -43,8 +58,14 @@
 }
 
 .banner_text{
-    text-align: center;
     margin-left: 0.3rem;
     font-size: 1.6rem;
     font-weight: 600;
+}
+
+.btn{
+    @include mixins.breakpoints-down(mobile){
+        display: block;
+        margin-inline: auto;
+    }
 }
