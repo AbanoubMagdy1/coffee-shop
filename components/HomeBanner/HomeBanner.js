@@ -6,7 +6,9 @@ function HomeBanner() {
   return (
     <section className={styles.banner}>
       <h1 className={styles.banner_title}>
-        Coffee <span className={styles.title2}>Connisseur</span>
+        <span className={styles.title1}>Coffee</span>
+        &nbsp;
+        <span className={styles.title2}>Connisseur</span>
       </h1>
 
       <p className={styles.banner_text}>

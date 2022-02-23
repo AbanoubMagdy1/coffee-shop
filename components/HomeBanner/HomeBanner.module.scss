@@ -5,7 +5,7 @@
     align-items: center;
     flex-direction: column;
     color : var(--text-white);
-    padding: 6rem 0;
+    padding: 2rem 0;
 
     @include mixins.breakpoints-up(tablet){
         align-items: flex-start;
@@ -13,6 +13,7 @@
 }
 
 .banner_title{
+    text-align: center;
     font-size: 5rem;
     line-height: 1;
     font-weight: 700;
@@ -24,17 +25,26 @@
 
 }
 
-.title2{
+.title1{
+    text-align: center;
     display: block;
-    color : var(--text-purple-dark);
+    letter-spacing: 2.2rem;
+    text-indent: 3.9rem;
 
     @include mixins.breakpoints-up(tablet){
         display: inline;
+        letter-spacing: initial;
+        text-indent: initial;
     }
+}
+
+.title2{
+    color : var(--text-purple-dark);
 }
 
 .banner_text{
     text-align: center;
     margin-left: 0.3rem;
     font-size: 1.6rem;
+    font-weight: 600;
 }
