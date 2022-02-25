@@ -1,14 +1,14 @@
 import React from "react";
 import Image from "next/image";
+import backgroundImage from "../../public/imgs/home-background.png";
 import styles from "./HomeBanner.module.scss";
 
 function HomeBanner() {
-  console.log(styles);
   return (
     <section className={styles.banner}>
       <div className={styles.background}>
         <Image
-          src="/home-background.png"
+          src={backgroundImage}
           alt="home background"
           layout="fill"
         />

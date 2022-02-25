@@ -1,25 +1,27 @@
 @use "../../styles/mixins";
 
 .banner{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
     color : var(--text-white);
     padding: 2rem 0;
     position: relative;
     z-index: 1;
+}
+
+.main{
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    z-index: 3;
 
     @include mixins.breakpoints-up(tablet){
         align-items: flex-start;
     }
-}
 
-.main{
-    z-index: 3;
 }
 
 .background{
-    z-index: 0;
+    z-index: -1;
     opacity: .7;
     
     @include mixins.breakpoints-down(mobile){
@@ -28,23 +30,19 @@
 }
 
 .banner_title{
+    font-family: Oxygen;
     text-align: center;
     font-size: 5rem;
     line-height: 1;
     font-weight: 700;
     margin-bottom: 2rem;
-
-    @include mixins.breakpoints-up(tablet){
-        font-size: 6rem;
-    }
-
 }
 
 .title1{
     text-align: center;
     display: block;
-    letter-spacing: 2.2rem;
-    text-indent: 3.9rem;
+    letter-spacing: 2.1rem;
+    text-indent: 3.2rem;
 
     @include mixins.breakpoints-up(tablet){
         display: inline;
@@ -58,14 +56,10 @@
 }
 
 .banner_text{
+    text-align: center;
     margin-left: 0.3rem;
     font-size: 1.6rem;
     font-weight: 600;
 }
 
-.btn{
-    @include mixins.breakpoints-down(mobile){
-        display: block;
-        margin-inline: auto;
-    }
-}
+
