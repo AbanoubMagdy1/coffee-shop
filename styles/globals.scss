@@ -29,13 +29,14 @@ body{
 } 
   
 a {
+  cursor: pointer !important;
   color: inherit;
   text-decoration: none;
 }
 
-.my-3{
-  margin: 3rem 0;
-}
+.my-3{margin: 3rem 0;}
+
+.mt-2{margin-top: 2rem;}
 
 .heading-secondary{
   font-size: 3rem;
@@ -44,13 +45,21 @@ a {
   font-weight: 400;
 }
 
+.heading-tertiary{
+  font-size: 1.8rem;
+  color: var(--text-purple-dark);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
 .btn{
   cursor: pointer;
   border: none;
   padding : 1.3rem 1.7rem;
   transition: .2s all;
   font-weight: 400;
-  font-size: 1.3rem;
+  font-size: 1.5rem;
+  display: inline-block;
 
   &:active{
     transform: translateY(1px);
@@ -64,6 +73,14 @@ a {
       background-color: darken(#220779, 10%);
     }
   }
+
+  &-transparent{
+    background: transparent;
+    color: var(--text-purple-dark);
+    padding-left: 0;
+    padding-bottom: 0;
+    font-weight: 700;
+  }
 }
 
 .glass{
@@ -73,11 +90,40 @@ a {
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
   border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: background .3s;
+
+  &:hover{
+    background: rgba(255, 255, 255, 0.8);
+  }
 }
+
 //Pages
 
 .home-cards{
   display: grid;
   gap: 2rem;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+
+.coffee-page{
+  display: flex;
+  gap: 3rem;
+
+  @include mixins.breakpoints-down(mobile){
+    flex-direction: column;
+  }
+
+  &__img{
+    flex: 3 0;
+  }
+
+  &__card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 2rem;
+    flex: 2 0;
+    min-width: min(50%, 200px);
+  }
 }

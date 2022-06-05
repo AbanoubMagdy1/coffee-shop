@@ -1,7 +1,8 @@
 @use "../../styles/mixins";
 
 .container{
-    width : 95%;
+    width : 1000px;
+    max-width: calc(100% - 60px);
     margin : 0 auto;
     padding : 2rem 0;
 
