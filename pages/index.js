@@ -28,7 +28,7 @@ export default function Home({ coffeeStores }){
     </Container>
   );
 }
-
+//fsq34I0wfJWAGUomJDmGbd18OjQWv3Yn3MD2L8OmL4vYgSQ=
 export async function getStaticProps(){
   const [res] = await asyncHandler(getCoffeeStores);
   return {
