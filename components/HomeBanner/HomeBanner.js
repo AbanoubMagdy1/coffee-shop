@@ -3,7 +3,7 @@ import Image from "next/image";
 import backgroundImage from "../../public/imgs/home-background.png";
 import styles from "./HomeBanner.module.scss";
 
-function HomeBanner() {
+function HomeBanner({ getLocation }) {
   return (
     <section className={styles.banner}>
       <div className={styles.background}>
@@ -24,7 +24,9 @@ function HomeBanner() {
           Here you can find you favourite coffee shops
         </p>
 
-        <button className={`btn btn-purple ${styles.btn}`}>View shops nearby</button>
+        <button className={`btn btn-purple ${styles.btn}`} onClick={getLocation} >
+          View shops nearby
+        </button>
       </div>
     </section>
   );

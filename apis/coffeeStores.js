@@ -1,19 +1,21 @@
 import axios from "axios";
 
 export async function getCoffeeStores({ ll }){
+  console.log(process.env.NEXT_PUBLIC_FOURSQUARES_API, ll);
   const res = await axios.get("http://api.foursquare.com/v3/places/search", {
     headers: {
-      Authorization: process.env.NEXT_PUBLIC_FOURSQUARES_API
+      Authorization: process.env.NEXT_PUBLIC_FOURSQUARES_API,
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "DELETE, POST, GET, OPTIONS"
     }, params: {
       query: "coffee shop",
       ll,
-      limit: 6
+      limit: 6,
+      fields: "fsq_id,name"
     } }
   );
 
   const placesPhotos = await Promise.all(res.data.results.map(({ fsq_id }) => getPlacePhoto(fsq_id)));
-
-  console.log(placesPhotos[1].data);
 
   const stores = res.data.results.map((store, i) => ({
     ...store,

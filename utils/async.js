@@ -6,3 +6,9 @@ export async function asyncHandler(func, params){
     return [null, err];
   }
 }
+
+export function extractErrorMessage(err){
+  return err.message ||
+        err.response.data.message ||
+        "Something wrong happened, try again later";
+}
