@@ -3,10 +3,10 @@ import Head from "next/head";
 import Container from "../components/Container/Container";
 import HomeBanner from "../components/HomeBanner/HomeBanner";
 import HomeCard from "../components/HomeCard/HomeCard";
+import Message from "../components/Message/Message";
 
-import coffeeStores from "../public/coffee-stores";
 import { asyncHandler } from "../utils/async";
-import axios from "axios";
+import { getCoffeeStores } from "../apis/coffeeStores";
 
 
 export default function Home({ coffeeStores }){
@@ -19,8 +19,10 @@ export default function Home({ coffeeStores }){
       </Head>
       <HomeBanner/>
       <div className="my-3">
-        <h3 className="heading-secondary">Common coffee stores</h3>
+        <h3 className="heading-secondary">Cairo coffee stores</h3>
       </div>
+      {coffeeStores.length == 0 && <Message>No coffee shops found</Message>}
+
       <div className="home-cards">
         {coffeeStores.map(store => <HomeCard key={store.fsq_id} store={store}/>)}
       </div>
@@ -30,23 +32,11 @@ export default function Home({ coffeeStores }){
 }
 
 export async function getStaticProps(){
-  const [res] = await asyncHandler(getCoffeeStores);
+  const [stores] = await asyncHandler(getCoffeeStores, { ll: "30.075082866742452,31.264988029829123" });
   return {
     props: {
-      coffeeStores: res ? res.data.results : coffeeStores
+      coffeeStores: stores ? stores : [],
     }
   };
 }
 
-async function getCoffeeStores(){
-  return await axios.get("http://api.foursquare.com/v3/places/search", {
-    headers: {
-      Authorization: process.env.NEXT_PUBLIC_FOURSQUARES_API
-    }, params: {
-      query: "coffee shop",
-      //near: "NYC",
-      ll: "30.075082866742452,31.264988029829123",
-      limit: 6
-    } }
-  );
-}
