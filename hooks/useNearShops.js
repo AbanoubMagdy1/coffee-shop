@@ -1,6 +1,14 @@
+import axios from "axios";
 import { useState, useEffect } from "react";
-import { getCoffeeStores } from "../apis/coffeeStores";
 import { asyncHandler } from "../utils/async";
+
+async function getStoresRequest ({ ll }){
+  return await axios.get("/api/stores", {
+    params: {
+      ll
+    }
+  });
+}
 
 export default function useNerShops(latLong){
   const [stores, setStores] = useState([]);
@@ -8,9 +16,10 @@ export default function useNerShops(latLong){
 
   async function getStores(){
     setLoading(true);
-    const [stores] = await asyncHandler(getCoffeeStores, { ll: latLong });
+    const [res] = await asyncHandler(getStoresRequest, { ll: latLong });
+
     setLoading(false);
-    setStores(stores || []);
+    setStores(res?.data || []);
   }
 
   useEffect(function(){

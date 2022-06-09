@@ -23,9 +23,9 @@ export default function Home({ coffeeStores }){
         <meta title="coffee shops"/>
         <link rel="icon" href="/favicon.ico"/>
       </Head>
-      <HomeBanner getLocation={getLocation}/>
+      <HomeBanner getLocation={getLocation} loading={loading}/>
       <div className="my-3">
-        <h3 className="heading-secondary">Cairo coffee stores</h3>
+        <h3 className="heading-secondary">San francisco coffee stores</h3>
       </div>
       {coffeeStores.length == 0 && <Message>No coffee shops found</Message>}
 
@@ -34,7 +34,6 @@ export default function Home({ coffeeStores }){
       </div>
 
       {err && <Message>{err}</Message>}
-      {loading && <p>Loading...</p>}
       {stores.length && <div className="my-3">
         <h3 className="heading-secondary">Nearby stores</h3>
       </div>
@@ -47,7 +46,7 @@ export default function Home({ coffeeStores }){
 }
 
 export async function getStaticProps(){
-  const [stores] = await asyncHandler(getCoffeeStores, { ll: "30.075082866742452,31.264988029829123" });
+  const [stores] = await asyncHandler(getCoffeeStores, { ll: "37.76831609924992,-122.42819563159775" });
   return {
     props: {
       coffeeStores: stores ? stores : [],
