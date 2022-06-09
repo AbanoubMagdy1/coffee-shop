@@ -5,8 +5,4 @@
     max-width: calc(100% - 60px);
     margin : 0 auto;
     padding : 2rem 0;
-
-    @include mixins.breakpoints-up(tablet){
-        max-width : 80rem;
-    }
 }

@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { asyncHandler } from "../utils/async";
 
 async function getStoresRequest ({ ll }){
@@ -10,14 +10,11 @@ async function getStoresRequest ({ ll }){
   });
 }
 
-export default function useNerShops(latLong){
-  const [stores, setStores] = useState([]);
-  const [loading, setLoading] = useState(false);
-
+export default function useNearShops({ latLong, setLoading, setStores }){
   async function getStores(){
     setLoading(true);
     const [res] = await asyncHandler(getStoresRequest, { ll: latLong });
-
+    location.href = "#nearby";
     setLoading(false);
     setStores(res?.data || []);
   }
@@ -25,6 +22,4 @@ export default function useNerShops(latLong){
   useEffect(function(){
     if(latLong) getStores();
   },[latLong]);
-
-  return { loading, stores };
 }

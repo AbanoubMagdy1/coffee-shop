@@ -66,11 +66,18 @@ a {
     transform: translateY(1px);
   }
 
+  &:disabled{
+    color: #fff;
+    background-color: #6c757d;
+    border-color: #6c757d;
+  }
+  
+
   &-purple{
     color : var(--text-white);
     background-color: var(--text-purple-dark);
 
-    &:hover{
+    &:hover:not(:disabled){
       background-color: darken(#220779, 10%);
     }
   }

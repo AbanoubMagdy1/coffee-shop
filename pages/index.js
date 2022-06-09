@@ -10,11 +10,13 @@ import useNearShops from "../hooks/useNearShops";
 
 import { asyncHandler } from "../utils/async";
 import { getCoffeeStores } from "../apis/coffeeStores";
+import { useStoresContext } from "../context/nearStoreContext";
 
 
 export default function Home({ coffeeStores }){
+  const { stores, loading, setLoading, setStores } = useStoresContext();
   const { getLocation, latLong, err } = useLocation();
-  const { stores, loading } = useNearShops(latLong);
+  useNearShops({ latLong, setLoading, setStores });
 
   return (
     <Container>
@@ -32,7 +34,7 @@ export default function Home({ coffeeStores }){
       <div className="home-cards">
         {coffeeStores.map(store => <HomeCard key={store.fsq_id} store={store}/>)}
       </div>
-
+      <span id="nearby"></span>
       {err && <Message>{err}</Message>}
       {stores.length && <div className="my-3">
         <h3 className="heading-secondary">Nearby stores</h3>

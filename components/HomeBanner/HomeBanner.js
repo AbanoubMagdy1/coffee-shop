@@ -24,7 +24,7 @@ function HomeBanner({ getLocation, loading }) {
           Here you can find you favourite coffee shops
         </p>
 
-        <button className={`btn btn-purple ${styles.btn}`} onClick={getLocation} disabled={loading} >
+        <button className={"btn btn-purple"} onClick={getLocation} disabled={loading} >
           {loading ? "Loading..." : "View shops nearby"}
         </button>
       </div>
