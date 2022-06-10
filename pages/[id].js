@@ -1,5 +1,4 @@
 import Head from "next/head";
-import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import useSWR from "swr";
@@ -11,6 +10,7 @@ import { MdPlace } from "react-icons/md";
 
 import Container from "../components/Container/Container";
 import Message from "../components/Message/Message";
+import ImageSlider from "../components/ImageSlider/ImageSlider";
 
 import { extractErrorMessage } from "../utils/async";
 import { getPhotoUrl } from "../utils/dataUtils";
@@ -39,8 +39,8 @@ export default function CoffeeStore(){
   </Container>);
 
   const store = data.data;
-  console.log(store);
-  const imgUrl = getPhotoUrl(store?.photos?.[0]);
+
+  const images = store?.photos.map(getPhotoUrl);
 
   return (
     <Container>
@@ -60,13 +60,7 @@ export default function CoffeeStore(){
 
       <div className="coffee-page">
         <div className="coffee-page__img">
-          <Image
-            src={imgUrl}
-            alt={data.name}
-            layout="responsive"
-            width={1}
-            height={1}
-          />
+          <ImageSlider images={images}/>
         </div>
 
         <div className="coffee-page__card glass">
