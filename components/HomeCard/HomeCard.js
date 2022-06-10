@@ -7,7 +7,7 @@ import Link from "next/link";
 
 function HomeCard({ store }) {
   return (
-    <Link href={`/${store.id}`} passHref={true}>
+    <Link href={`/${store.fsq_id}`} passHref={true}>
       <a>
         <div className={clsx("glass", styles.homeCard)}>
           <Image

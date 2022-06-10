@@ -19,6 +19,7 @@ body {
 
 html{
   font-size: clamp(10px, 2px + 2vw, 13px);
+  scroll-behavior: smooth;
 }
 
 body{
@@ -91,6 +92,16 @@ a {
   }
 }
 
+.icon{
+  color: #3c1774;
+  font-size: 2.7rem;
+}
+
+.center-p{
+  display: flex;
+  align-items: center;
+}
+
 .glass{
   background: rgba(255, 255, 255, 0.54);
   border-radius: 16px;
@@ -126,6 +137,7 @@ a {
   }
 
   &__card{
+    align-self: flex-start;
     display: flex;
     flex-direction: column;
     justify-content: center;
